@@ -29,12 +29,12 @@
 				<platform value="windows"/>
 			</condition>
 		</external_include>
-
-		<external_include location="$HEADER_TEMPLATE_PATH">
+		<external_include location="/usr/local/include/tensorflow/c">
 			<condition>
 				<platform excluded_value="windows"/>
 			</condition>
 		</external_include>
+
 		<external_object location="$ECF_CONFIG_PATH/C/lib/tensorflow.lib">
 			<condition>
 				<platform value="windows"/>
@@ -45,6 +45,17 @@
 				<platform value="windows"/>
 			</condition>
 		</external_object>
+		<external_object location="$ECF_CONFIG_PATH/C/spec/$(ISE_PLATFORM)/lib/eif_libtensorflow.a">
+			<condition>
+				<platform excluded_value="windows"/>
+			</condition>
+		</external_object>
+		<external_linker_flag value="-ltensorflow ">
+			<condition>
+				<platform excluded_value="windows"/>
+			</condition>
+		</external_linker_flag>
+
 		<library name="base" location="$ISE_LIBRARY\library\base\base.ecf"/>
 		<cluster name="src" location=".\" recursive="true">
 			<file_rule>
